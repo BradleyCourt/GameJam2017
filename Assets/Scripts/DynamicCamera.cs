@@ -5,12 +5,12 @@ public class DynamicCamera : MonoBehaviour
 {
     public GameObject[] TargetList = null; // List of player controlled gameobjects to follow
 
-    public float smoothing = .3f; // Follow speed of camrea
+    public float smoothing = .1f; // Follow speed of camrea
 
     public float offSet = 5f;
 
     [SerializeField]
-    float cameraDistance = -10;
+    float cameraDistance = 20;
 
     Camera cam; // reference to camera
 
@@ -27,7 +27,7 @@ public class DynamicCamera : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
         if (TargetList.Length > 0) 
         {
