@@ -1,21 +1,30 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Timer : MonoBehaviour {
 
-	// Use this for initialization
-	void Start ()
-    {
-	
-	}
-	
-	// Update is called once per frame
+	public Text uiElement;
+
 	void Update ()
     {
-        GameManager.currentLevelData.timeLeft -= Time.deltaTime;
-        if (GameManager.currentLevelData.timeLeft <= 0)
-        {
-            // TO DO restart game
-        }
+		if (GameManager.currentLevelData)		// If a level is loaded
+		{
+			GameManager.currentLevelData.timeLeft -= Time.deltaTime;
+
+			if (uiElement)		// If a UI text-element has been specified
+			{
+				float timeLeft = GameManager.currentLevelData.timeLeft;
+				if (timeLeft > 0)
+					uiElement.text = string.Format("{0}:{1:00}", (int)timeLeft / 60, (int)timeLeft % 60);
+				else
+					uiElement.text = "0:00";
+			}
+
+			if (GameManager.currentLevelData.timeLeft <= 0)
+			{
+				// TODO restart game
+			}
+		}
 	}
 }
