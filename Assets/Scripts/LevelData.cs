@@ -15,7 +15,7 @@ public class LevelData : MonoBehaviour {
 	[HideInInspector] public float timeLeft = 0.0f;
 
 	public Collectible[] collectibles;
-	public int collected = 0;
+	[HideInInspector] public int collected = 0;
 	public int collectiblesRequired = 0;
 
 	void Start () 
@@ -29,6 +29,9 @@ public class LevelData : MonoBehaviour {
 		// Initialize hits and time left
 		hitsLeft = totalHits;
 		timeLeft = totalTime;
+
+		// TODO: DELETE THIS ONCE IT IS PROPERLY INITIALIZED
+		GameManager.currentLevelData = this;
 	}
 
 	void Update () 
