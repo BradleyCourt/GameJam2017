@@ -37,7 +37,7 @@ public class DynamicCamera : MonoBehaviour
             {
                 float x = 0;
                 float y = 0;
-                foreach (GameObject g in TargetList)
+                foreach (GameObject g in TargetList) // Sums the x and y vavlues of all targets in list before dividing by length of list to find focus point
                 {
                     x += g.transform.position.x;
                     y += g.transform.position.y;
@@ -56,7 +56,7 @@ public class DynamicCamera : MonoBehaviour
 
             if (distance + offSet > cameraDistance)
             {
-                target.z = -(((distance / 2f / aspectRatio) / tanFOV) + offSet);
+                target.z = -(((distance / 2f / aspectRatio) / tanFOV) + offSet); // Calculates distance camera needs to be to fit both objects on screen
             }
             else
             {
@@ -77,9 +77,11 @@ public class DynamicCamera : MonoBehaviour
         {
             foreach (GameObject other in TargetList)
             {
-                if (new Vector3(g.transform.position.x - other.transform.position.x, g.transform.position.y - other.transform.position.y).magnitude > distance)
+                Vector3 temp = new Vector3(g.transform.position.x - other.transform.position.x, g.transform.position.y - other.transform.position.y);
+
+                if (temp.magnitude > distance && g != other)
                 {
-                    distance = new Vector3(g.transform.position.x - other.transform.position.x, g.transform.position.y - other.transform.position.y).magnitude;
+                    distance = temp.magnitude;
                 }
             }
         }
