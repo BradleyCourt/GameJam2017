@@ -57,11 +57,14 @@ public class DynamicCamera : MonoBehaviour
             if (distance + offSet > cameraDistance)
             {
                 target.z = -(((distance / 2f / aspectRatio) / tanFOV) + offSet); // Calculates distance camera needs to be to fit both objects on screen
+                Debug.Log((distance / 2f / aspectRatio) / tanFOV + offSet);
             }
             else
             {
                 target.z = -cameraDistance;
             }
+
+            target.z = Mathf.Clamp(target.z, -200, -10);
 
             transform.position = target;
         }        
