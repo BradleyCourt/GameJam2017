@@ -9,10 +9,10 @@ using System.Collections;
 public class LevelData : MonoBehaviour {
 
 	public int totalHits = 0;
-	private int hitsLeft = 0;
+	[HideInInspector] public int hitsLeft = 0;
 
 	public float totalTime = 0.0f;
-	private float timeLeft = 0.0f;
+	[HideInInspector] public float timeLeft = 0.0f;
 
 	public Collectible[] collectibles;
 	public int collected = 0;
@@ -25,6 +25,10 @@ public class LevelData : MonoBehaviour {
 		{
 			collectiblesRequired = collectibles.Length;
 		}
+
+		// Initialize hits and time left
+		hitsLeft = totalHits;
+		timeLeft = totalTime;
 	}
 
 	void Update () 
