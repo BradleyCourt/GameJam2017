@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/* DESCRIPTION
+ * Placed on an object to turn the object into a collectible. When the player controlled
+ * object collides with the collectible, it is taken and disappears.
+ */
+
 public class Collectible : MonoBehaviour {
 
 	public bool collected = false;
