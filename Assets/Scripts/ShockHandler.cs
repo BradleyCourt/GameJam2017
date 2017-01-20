@@ -4,7 +4,7 @@ using System.Collections;
 public class ShockHandler : MonoBehaviour {
 
 	public static float distance = 10.0f;
-	public static float force = 500.0f;
+	public static float force = 15.0f;
 	public static float time = 0.2f;
 
 	// Declared here to prevent variable declaration each time the screen is tapped

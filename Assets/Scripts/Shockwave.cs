@@ -53,7 +53,7 @@ public class Shockwave : MonoBehaviour {
 					newForce *= currentEnergy;
 					if (rb.velocity.y < 0 && newForce.y > 0)
 						rb.velocity = Vector3.zero;
-					rb.AddForce(newForce, ForceMode.Force);
+					rb.AddForce(newForce, ForceMode.Impulse);
 				}
 			}
 		}
