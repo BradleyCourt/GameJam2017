@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Shockwave : MonoBehaviour {
 
 	private Vector2 point = Vector2.zero;
+	private List<Rigidbody> affected = new List<Rigidbody>();
 
 	public void StartShockwave (Vector2 pos)		// Start the shockwave
 	{
@@ -39,15 +41,20 @@ public class Shockwave : MonoBehaviour {
 		foreach (Collider c in colliders)
 		{
 			Rigidbody rb = c.GetComponent<Rigidbody>();
-			if (rb)		// If the collider has an attached rigidbody component...
+			if (rb)		// Check if the collider has an attached rigidbody component
 			{
-				// ... Apply a force to the rigidbody
-				Vector2 newForce = new Vector2(rb.transform.position.x, rb.transform.position.y) - point;
-				newForce.Normalize();
-				newForce *= currentEnergy;
-				if (rb.velocity.y < 0)
-					rb.velocity = Vector3.zero;
-				rb.AddForce(newForce, ForceMode.Force);
+				if (!affected.Contains(rb))
+				{
+					affected.Add(rb);		// Add the rigidbody to the affected list so it is not affected again
+
+					// Apply a force to the rigidbody
+					Vector2 newForce = new Vector2(rb.transform.position.x, rb.transform.position.y) - point;
+					newForce.Normalize();
+					newForce *= currentEnergy;
+					if (rb.velocity.y < 0 && newForce.y > 0)
+						rb.velocity = Vector3.zero;
+					rb.AddForce(newForce, ForceMode.Force);
+				}
 			}
 		}
 	}

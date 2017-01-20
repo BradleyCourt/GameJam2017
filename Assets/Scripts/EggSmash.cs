@@ -1,0 +1,31 @@
+﻿using UnityEngine;
+using System.Collections;
+
+/* DESCRIPTION
+ * This script will cause an egg to smash if it hits an object with too much force
+ */
+
+public class EggSmash : MonoBehaviour {
+
+	public float smashVelocity = 10.0f;
+	Rigidbody rb;
+
+	void Start () 
+	{
+		rb = GetComponent<Rigidbody>();
+	}
+
+	void OnCollisionEnter (Collision col)
+	{
+		if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Player")		// Only break against obstacles (not collectibles, etc)
+		{
+			if (rb)		// If the object has an attached rigidbody
+			{
+				if (col.relativeVelocity.magnitude >= smashVelocity)		// Check if the egg's velocity is too fast
+				{
+					Debug.Log("SMASH!");
+				}
+			}
+		}
+	}
+}
