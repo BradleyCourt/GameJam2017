@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -25,16 +26,50 @@ public class LevelData : MonoBehaviour {
 
 	public void CollectEgg (GameObject egg)
 	{
-		GameManager.currentLevelData.eggsCollected.Add(egg);
+		eggsCollected.Add(egg);
 		checkLevelComplete();
 	}
 
 	private void checkLevelComplete ()
 	{
-		//foreach (GameObject egg in eggs)
-		//{
-		//	
-		//}
+		int count = 0;
+		int smashCount = 0;
+		foreach (GameObject egg in eggs)		// Check each egg in the level
+		{
+			bool collected = false;
+			foreach (GameObject egg2 in eggsCollected)		// Check which eggs have been collected
+			{
+				if (egg == egg2)		// Finds a match if the egg has been collected
+				{
+					collected = true;
+					count++;
+					break;
+				}
+			}
+
+			if (!collected)		// If the egg has not been collected
+			{
+				// Check if the egg has smashed
+				if (!egg.activeSelf)
+				{
+					// Egg is smashed
+					smashCount++;
+				}
+			}
+		}
+
+		if (count + smashCount >= eggs.Length)		// Check if all the eggs have been collected or smashed
+		{
+			if (count >= eggsRequired)		// Enough eggs were collected to pass!
+			{
+				LevelClass lc = GameManager.LevelByName(SceneManager.GetActiveScene().name);
+				if (lc != null)		// Found the current level in the level list
+				{
+					Debug.Log("Completed the level with " + eggsCollected.Count + " of " + eggs.Length + " eggs collected.");
+					lc.Complete (collected, eggsCollected.Count, hitsLeft, timeLeft);
+				}
+			}
+		}
 	}
 
 	void Start () 
@@ -57,10 +92,5 @@ public class LevelData : MonoBehaviour {
 
 		// TODO: DELETE THIS ONCE IT IS PROPERLY INITIALIZED
 		GameManager.currentLevelData = this;
-	}
-
-	void Update () 
-	{
-	
 	}
 }

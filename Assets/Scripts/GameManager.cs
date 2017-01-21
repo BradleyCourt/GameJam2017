@@ -27,7 +27,8 @@ public static class GameManager {
 		
 	public static LevelClass[] levels = new LevelClass[] 
 	{ new LevelClass("Level_1"), new LevelClass("Level_2"), new LevelClass("Level_3"),
-		new LevelClass("Level_4"), new LevelClass("Level_5"), new LevelClass("Level_6")
+		new LevelClass("Level_4"), new LevelClass("Level_5"), new LevelClass("Level_6"),
+		new LevelClass("TestSceneJake")
 	};
 
 	public static string nextLevel ()
@@ -48,6 +49,16 @@ public static class GameManager {
 		}
 		else
 			return levName;
+	}
+
+	public static LevelClass LevelByName (string s)
+	{
+		foreach (LevelClass c in levels)
+		{
+			if (s == c.levelName)
+				return c;
+		}
+		return null;
 	}
 
 }
