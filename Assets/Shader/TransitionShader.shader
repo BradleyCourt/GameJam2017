@@ -59,7 +59,6 @@
 
 				return o;
 			}
-
 			
 			int _Distort;
 			sampler2D _TransitionTex;
@@ -68,9 +67,7 @@
 			sampler2D _MainTex;
 			float _Cutoff;
 			fixed4 _Color;			
-			
-		
-	
+
 			fixed4 simplefrag(v2f i) : SV_Target
 			{
 				if (i.uv.x < _Cutoff)

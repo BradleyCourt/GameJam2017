@@ -31,21 +31,16 @@ public class TransitionBlit : MonoBehaviour
             }
             else if(transitioning && countingDown)
             {
-                transitioning = false;
-                countingDown = false;
-                TransitionMat.SetFloat("_Cutoff", 0);
+                clearScreen();
             }
         }
-<<<<<<< HEAD
-=======
-
-        //Debug.Log(TransitionMat.GetFloat("_Cutoff"));
->>>>>>> 8ba49292e727975872e1e18a8c2d1e27031c2173
 	}
 
-    public bool transitioned()
+    public void clearScreen()
     {
-        return (TransitionMat.GetFloat("_Cutoff") >= 1);
+        transitioning = false;
+        countingDown = false;
+        TransitionMat.SetFloat("_Cutoff", 0);
     }
 
     void OnRenderImage(RenderTexture src, RenderTexture dst)

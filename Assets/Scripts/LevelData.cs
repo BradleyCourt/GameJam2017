@@ -26,6 +26,8 @@ public class LevelData : MonoBehaviour {
 
     TransitionBlit blit;
 
+    bool playingIntro = false;
+
 	public void CollectEgg (GameObject egg)
 	{
 		eggsCollected.Add(egg);
@@ -122,20 +124,40 @@ public class LevelData : MonoBehaviour {
 		timeLeft = totalTime;
     }
 
-    
+    void Update()
+    {
+        if (playingIntro)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                skipIntro();
+            }
+        }
+    }
+
+    void skipIntro()
+    {
+        StopAllCoroutines();
+        FindObjectOfType<DynamicCamera>().Skip();
+        blit.clearScreen();
+        playingIntro = false;
+
+        GameManager.Playing = false;
+    }
 
     private IEnumerator fadeInStart()
     {
+        playingIntro = true;
         blit.transitioning = true;
         blit.countingDown = true;
         blit.TransitionMat.SetFloat("_Cutoff", 1.1f);
         Time.timeScale = 0;
-        yield return new WaitForSecondsRealtime(1.5f);
-<<<<<<< HEAD
-        StartCoroutine(FindObjectOfType<DynamicCamera>().StageOverView());          
-=======
+        yield return new WaitForSecondsRealtime(2f);
+
+        StartCoroutine(FindObjectOfType<DynamicCamera>().StageOverView());
         //Time.timeScale = 1;
+        playingIntro = false;
 		GameManager.Playing = false;		// This pauses the game timer until the first move is made
->>>>>>> 8ba49292e727975872e1e18a8c2d1e27031c2173
+
     }
 }

@@ -20,7 +20,7 @@ public class DynamicCamera : MonoBehaviour
 
     float aspectRatio;
 
-    bool starting = false;
+    public bool starting = false;
 
 	// Use this for initialization
 	void Start ()
@@ -92,28 +92,28 @@ public class DynamicCamera : MonoBehaviour
                         //focusPoint.x = (hit.point.x + TargetList[0].transform.position.x) / 2;
                         //focusPoint.y = (hit.point.y + TargetList[0].transform.position.y) / 2;
                         //focusPoint.z = 0;
-                        focusPoint = Vector3.Lerp(TargetList[0].transform.position, hit.point, .5f);
+                        focusPoint = Vector3.Lerp(TargetList[0].transform.position, hit.point, smoothing * 2);
 
-                        // target = Vector3.SmoothDamp(TargetList[0].transform.position, focusPoint, smoothing);
+                        //target.y = Mathf.SmoothStep(cam.transform.position.y, focusPoint.y, smoothing);
 
-                        
+                        target = Vector3.Lerp(cam.transform.position, focusPoint, smoothing);                        
 
                         //target.z = -(cameraDistance + hit.distance);
 
                        // target.z = -(((hit.distance / 2f / aspectRatio) / tanFOV) + offSet);
-                        target.z = Mathf.SmoothStep(cam.transform.position.z, -(((hit.distance / 1.0f / aspectRatio) / tanFOV) + offSet), smoothing);
+                        target.z = Mathf.SmoothStep(cam.transform.position.z, -(((hit.distance / 1.0f / aspectRatio) / tanFOV) + offSet), .05f);
                     }
                     else
-                        target.z = Mathf.SmoothStep(cam.transform.position.z, -cameraDistance, smoothing);
+                        target.z = Mathf.SmoothStep(cam.transform.position.z, -cameraDistance, .05f);
                     
                 }
                 else
-                    target.z = Mathf.SmoothStep(cam.transform.position.z, -cameraDistance, smoothing);
+                    target.z = Mathf.SmoothStep(cam.transform.position.z, -cameraDistance, .05f);
             }
 
             target.z = Mathf.Clamp(target.z, -200, -10);
 
-            transform.position = target;
+            transform.position = Vector3.Lerp(transform.position, target, 1 - smoothing);
         }        
     }
 
@@ -143,6 +143,12 @@ public class DynamicCamera : MonoBehaviour
     {
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(startLocation, 1);
+    }
+
+    public void Skip()
+    {
+        starting = false;
+        cam.transform.position = startLocation;
     }
 
     public IEnumerator StageOverView()
