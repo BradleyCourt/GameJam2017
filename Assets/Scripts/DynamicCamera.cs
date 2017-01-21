@@ -64,7 +64,9 @@ public class DynamicCamera : MonoBehaviour
             }
             else
             {
-                target.z = -Mathf.Lerp(cameraDistance, cameraDistance + TargetList[0].GetComponent<Rigidbody>().velocity.magnitude / 2, .5f);
+                //target.z = -Mathf.Lerp(cameraDistance, cameraDistance + TargetList[0].GetComponent<Rigidbody>().velocity.magnitude / 2, .5f);
+
+                target.z = -cameraDistance;
             }
 
             target.z = Mathf.Clamp(target.z, -200, -10);
