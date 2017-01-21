@@ -66,15 +66,43 @@ public class LevelData : MonoBehaviour {
 				LevelClass lc = GameManager.LevelByName(SceneManager.GetActiveScene().name);
 				if (lc != null)		// Found the current level in the level list
 				{
-					Debug.Log("Completed the level with " + eggsCollected.Count + " of " + eggs.Length + " eggs collected.");
+					Debug.Log("Completed the level with " + eggsCollected.Count + " of " + eggs.Length + " eggs collected. " + collected + " of " + collectibles.Length + " were collected");
 					lc.Complete (collected, eggsCollected.Count, hitsLeft, timeLeft);
 				}
 			}
 			else
 			{
 				// The level was failed and needs to be restarted
-
+				restartLevel();
 			}
+		}
+	}
+
+	private void restartLevel()
+	{
+		StartCoroutine(animationHandler(0.7f));
+
+		//Time.timeScale = 1f;
+	}
+
+	private IEnumerator animationHandler(float t)
+	{
+		Material fader = Camera.main.GetComponent<Material>();
+		if (fader)
+		{
+			float currentValue = 0;
+			Time.timeScale = 0.7f;
+
+			AsyncOperation ao = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+			ao.allowSceneActivation = false;
+
+			// FADE OUT HERE
+
+			Time.timeScale = 0;
+
+			// FADE IN HERE
+
+			Time.timeScale = 1;
 		}
 	}
 
