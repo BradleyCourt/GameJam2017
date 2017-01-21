@@ -13,7 +13,7 @@ public class TransitionBlit : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {        
-        //TransitionMat.SetFloat("_Cutoff", 0);
+
     }
 	
 	// Update is called once per frame
@@ -23,7 +23,7 @@ public class TransitionBlit : MonoBehaviour
         {
             if(TransitionMat.GetFloat("_Cutoff") <= 1 && !countingDown)
             {
-                TransitionMat.SetFloat("_Cutoff", TransitionMat.GetFloat("_Cutoff") + Time.deltaTime);
+                TransitionMat.SetFloat("_Cutoff", TransitionMat.GetFloat("_Cutoff") + Time.fixedDeltaTime);
             }
             else if(TransitionMat.GetFloat("_Cutoff") >= 0)
             {

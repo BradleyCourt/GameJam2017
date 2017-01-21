@@ -24,6 +24,8 @@ public class LevelData : MonoBehaviour {
 	private List<GameObject> eggsCollected = new List<GameObject>();
 	public int eggsRequired = 0;
 
+    TransitionBlit blit;
+
 	public void CollectEgg (GameObject egg)
 	{
 		eggsCollected.Add(egg);
@@ -87,27 +89,15 @@ public class LevelData : MonoBehaviour {
 
 	private IEnumerator animationHandler(float t)
 	{
-		Material fader = Camera.main.GetComponent<Material>();
-		if (fader)
-		{
-			float currentValue = 0;
-			Time.timeScale = 0.7f;
-
-			AsyncOperation ao = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-			ao.allowSceneActivation = false;
-
-			// FADE OUT HERE
-
-			Time.timeScale = 0;
-
-			// FADE IN HERE
-
-			Time.timeScale = 1;
-		}
-	}
+        blit.transitioning = true;
+        yield return new WaitForSeconds(1);
+        AsyncOperation ao = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+    }
 
 	void Start () 
 	{
+
+
 		// Ensure the level does not require more collectibles than available to pass
 		if (collectiblesRequired > collectibles.Length)
 		{
@@ -124,7 +114,20 @@ public class LevelData : MonoBehaviour {
 		hitsLeft = totalHits;
 		timeLeft = totalTime;
 
+        blit = FindObjectOfType<TransitionBlit>();
+
 		// TODO: DELETE THIS ONCE IT IS PROPERLY INITIALIZED
 		GameManager.currentLevelData = this;
-	}
+        StartCoroutine(fadeInStart());
+    }
+
+    private IEnumerator fadeInStart()
+    {
+        blit.transitioning = true;
+        blit.countingDown = true;
+        blit.TransitionMat.SetFloat("_Cutoff", 1.1f);
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(1.5f);
+        Time.timeScale = 1;
+    }
 }
