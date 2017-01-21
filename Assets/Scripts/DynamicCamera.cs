@@ -43,7 +43,6 @@ public class DynamicCamera : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-        Debug.Log("Fixed update ticking");
         if (TargetList.Length > 0) 
         {
             Vector3 focusPoint;
@@ -86,7 +85,6 @@ public class DynamicCamera : MonoBehaviour
 
                 if (Physics.Raycast(TargetList[0].transform.position, Vector3.down, out hit, cameraDistance))
                 {
-                    Debug.Log(hit.point);
                     if (hit.distance + offSet > cameraDistance)
                     {
                         //focusPoint.x = (hit.point.x + TargetList[0].transform.position.x) / 2;

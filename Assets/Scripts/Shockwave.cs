@@ -49,16 +49,33 @@ public class Shockwave : MonoBehaviour {
 
 					// Apply a force to the rigidbody
 					Vector2 newForce = new Vector2(rb.transform.position.x, rb.transform.position.y) - point;
+
+                    Debug.Log(point);
+                    Debug.Log(rb.transform.position);
+
 					newForce.Normalize();
 					newForce *= currentEnergy;
                     if (rb.velocity.y < 0 && newForce.y > 0)
                         rb.velocity *= .5f;
-						//rb.velocity = Vector3.zero;
-					//rb.AddForce(newForce, ForceMode.Impulse);
-                    rb.AddExplosionForce(ShockHandler.force*50, point, ShockHandler.distance);
-                    
-				}
-			}
+                    //rb.velocity = Vector3.zero;
+                    //rb.AddForce(newForce, ForceMode.Impulse);
+
+
+                    if (Vector2.Distance(new Vector2(rb.transform.position.x, rb.transform.position.y), point) < 1)
+                    {
+                        newForce.Normalize();
+                        newForce *= 1f;
+                        rb.AddExplosionForce(ShockHandler.force * 50, new Vector3(point.x - newForce.x, point.y - newForce.y), ShockHandler.distance);
+                    }
+                    else
+                    {
+                        rb.AddExplosionForce(ShockHandler.force * 50, new Vector3(point.x, point.y), ShockHandler.distance);
+                    }
+                }
+
+                
+            }
 		}
+        
 	}
 }
