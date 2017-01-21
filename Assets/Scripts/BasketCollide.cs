@@ -18,6 +18,15 @@ public class BasketCollide : MonoBehaviour {
 			if (smash)
 				Destroy(smash);
 
+			Collider[] thisCols = col.gameObject.GetComponents<Collider>();
+			if (thisCols.Length > 0)
+			{
+				foreach (Collider c in thisCols)
+				{
+					Destroy(c);
+				}
+			}
+
 			// Record the egg as 'collected'
 			if (GameManager.currentLevelData)
 			{

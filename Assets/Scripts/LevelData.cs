@@ -30,8 +30,9 @@ public class LevelData : MonoBehaviour {
 		checkLevelComplete();
 	}
 
-	private void checkLevelComplete ()
+	public void checkLevelComplete ()
 	{
+		Debug.Log("checking if level complete");
 		int count = 0;
 		int smashCount = 0;
 		foreach (GameObject egg in eggs)		// Check each egg in the level
@@ -68,6 +69,11 @@ public class LevelData : MonoBehaviour {
 					Debug.Log("Completed the level with " + eggsCollected.Count + " of " + eggs.Length + " eggs collected.");
 					lc.Complete (collected, eggsCollected.Count, hitsLeft, timeLeft);
 				}
+			}
+			else
+			{
+				// The level was failed and needs to be restarted
+
 			}
 		}
 	}

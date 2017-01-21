@@ -39,5 +39,7 @@ public class EggSmash : MonoBehaviour {
             if (a)
                 a.Execute();
         }
+
+		GameManager.currentLevelData.checkLevelComplete();
     }
 }
