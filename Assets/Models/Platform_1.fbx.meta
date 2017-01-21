@@ -1,32 +1,15 @@
 fileFormatVersion: 2
-guid: e4e5b378068f50a4a9972862c6fd68d2
-timeCreated: 1484965708
+guid: 1b9a48392088f0c4191648e1baa2fc4e
+timeCreated: 1484975454
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: easteregg3:pSphere1
-    100004: pCube1
-    100006: pCylinder1
-    100008: pCylinder2
     400000: //RootNode
-    400002: easteregg3:pSphere1
-    400004: pCube1
-    400006: pCylinder1
-    400008: pCylinder2
-    2300000: easteregg3:pSphere1
-    2300002: pCube1
-    2300004: pCylinder1
-    2300006: pCylinder2
-    3300000: easteregg3:pSphere1
-    3300002: pCube1
-    3300004: pCylinder1
-    3300006: pCylinder2
-    4300000: pCylinder1
-    4300002: pCube1
-    4300004: pCylinder2
-    4300006: easteregg3:pSphere1
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pCube1
     9500000: //RootNode
   materials:
     importMaterials: 1
