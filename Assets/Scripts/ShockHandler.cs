@@ -14,7 +14,7 @@ public class ShockHandler : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)&& Time.timeScale != 0)     // Check the player has clicked
+        if (Input.GetMouseButtonDown(0) && Time.timeScale != 0)     // Check the player has clicked
         {
             // Find all objects beneath the click
             hits = Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition));

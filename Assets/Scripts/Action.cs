@@ -7,7 +7,7 @@ using System.Collections;
 
 public class Action : MonoBehaviour {
 
-	public void Execute ()
+	public virtual void Execute ()
 	{
 		
 	}
