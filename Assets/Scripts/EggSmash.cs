@@ -21,23 +21,23 @@ public class EggSmash : MonoBehaviour {
 	{
 		if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Player")		// Only break against obstacles (not collectibles, etc)
 		{
-			Smash(col);
-		}
+            if (rb)     // If the object has an attached rigidbody
+            {
+                if (col.relativeVelocity.magnitude >= smashVelocity)        // Check if the egg's velocity is too fast
+                {
+                    Smash();
+                }
+            }
+        }
 	}
 
-	public void Smash (Collision col)
+	public void Smash ()
 	{
-		if (rb)		// If the object has an attached rigidbody
-		{
-			if (col.relativeVelocity.magnitude >= smashVelocity)		// Check if the egg's velocity is too fast
-			{
-				Debug.Log("SMASH!");
-				foreach (Action a in onSmash)
-				{
-					if (a)
-						a.Execute();
-				}
-			}
-		}
-	}
+        Debug.Log("SMASH!");
+        foreach (Action a in onSmash)
+        {
+            if (a)
+                a.Execute();
+        }
+    }
 }
