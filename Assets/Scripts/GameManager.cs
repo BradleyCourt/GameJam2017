@@ -42,7 +42,7 @@ public static class GameManager {
 			}
 		}
 
-		if (levName = "")		// If all levels have been passed
+		if (levName == "")		// If all levels have been passed
 		{
 			return "MainMenu";
 		}
