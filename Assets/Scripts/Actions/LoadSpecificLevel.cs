@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class LoadSpecificLevel : Action {
@@ -7,6 +8,6 @@ public class LoadSpecificLevel : Action {
 
     public override void Execute()
     {
-        Application.LoadLevel(sceneName);
+		SceneManager.LoadScene(sceneName);
     }
 }
