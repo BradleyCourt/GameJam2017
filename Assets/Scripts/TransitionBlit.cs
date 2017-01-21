@@ -36,8 +36,6 @@ public class TransitionBlit : MonoBehaviour
                 TransitionMat.SetFloat("_Cutoff", 0);
             }
         }
-
-        Debug.Log(TransitionMat.GetFloat("_Cutoff"));
 	}
 
     public bool transitioned()

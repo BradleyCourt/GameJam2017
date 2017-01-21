@@ -9,7 +9,7 @@ public class CollectableRotation : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate ()
+	void Update ()
     {
         transform.Rotate(0, 1, 0);
     }

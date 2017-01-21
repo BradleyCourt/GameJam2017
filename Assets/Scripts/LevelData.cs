@@ -121,6 +121,8 @@ public class LevelData : MonoBehaviour {
         StartCoroutine(fadeInStart());
     }
 
+    
+
     private IEnumerator fadeInStart()
     {
         blit.transitioning = true;
@@ -128,6 +130,6 @@ public class LevelData : MonoBehaviour {
         blit.TransitionMat.SetFloat("_Cutoff", 1.1f);
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(1.5f);
-        Time.timeScale = 1;
+        StartCoroutine(FindObjectOfType<DynamicCamera>().StageOverView());          
     }
 }
