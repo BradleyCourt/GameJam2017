@@ -89,6 +89,7 @@ public class LevelData : MonoBehaviour {
 
 	private IEnumerator animationHandler(float t)
 	{
+		yield return new WaitForSeconds(1.5f);
         blit.transitioning = true;
         yield return new WaitForSeconds(1);
         AsyncOperation ao = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
@@ -110,15 +111,15 @@ public class LevelData : MonoBehaviour {
 			eggsRequired = eggs.Length;
 		}
 
-		// Initialize hits and time left
-		hitsLeft = totalHits;
-		timeLeft = totalTime;
-
         blit = FindObjectOfType<TransitionBlit>();
 
 		// TODO: DELETE THIS ONCE IT IS PROPERLY INITIALIZED
-		GameManager.currentLevelData = this;
         StartCoroutine(fadeInStart());
+		GameManager.currentLevelData = this;
+
+		// Initialize hits and time left
+		hitsLeft = totalHits;
+		timeLeft = totalTime;
     }
 
     private IEnumerator fadeInStart()
@@ -128,6 +129,7 @@ public class LevelData : MonoBehaviour {
         blit.TransitionMat.SetFloat("_Cutoff", 1.1f);
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(1.5f);
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
+		GameManager.Playing = false;		// This pauses the game timer until the first move is made
     }
 }

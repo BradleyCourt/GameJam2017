@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour {
 
 	void Update ()
     {
-		if (GameManager.currentLevelData)		// If a level is loaded
+		if (GameManager.currentLevelData && GameManager.Playing)		// If a level is loaded
 		{
 			GameManager.currentLevelData.timeLeft -= Time.deltaTime;
 
