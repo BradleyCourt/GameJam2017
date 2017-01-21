@@ -62,6 +62,7 @@ public class ShockHandler : MonoBehaviour {
 		{
 			if (GameManager.currentLevelData.hitsLeft > 0 && GameManager.currentLevelData.timeLeft > 0)
 			{
+				GameManager.Playing = true;
 				GameManager.currentLevelData.hitsLeft -= 1;
 
 				// Create a new shockwave on an empty GameObject

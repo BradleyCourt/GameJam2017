@@ -10,7 +10,7 @@ public static class GameManager {
 	public static LevelData currentLevelData = null;
 
 	private static bool paused = false;		// Toggled when the pause menu is displayed
-	public static bool playing = true;		// Should be false when time runs out, etc
+	private static bool playing = true;		// Should be false when time runs out, etc
 
 	public static bool Paused
 	{
@@ -22,6 +22,29 @@ public static class GameManager {
 			{
 				Time.timeScale = 0;
 			}
+		}
+	}
+
+	public static bool Playing
+	{
+		get { return playing; }
+		set
+		{
+			if (value != playing)
+			{
+				// Value has changed
+				bool newVal = value;
+				playing = value;
+				if (newVal == true)
+				{
+					// Game is now playing, set timescale
+					Time.timeScale = 1;
+				}
+				else
+				{
+					// Game play is stopping (player just respawned)
+				}
+			};
 		}
 	}
 		
