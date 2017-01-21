@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class ShockHandler : MonoBehaviour {
 
 	public static float distance = 10.0f;
-	public static float force = 15.0f;
+	public static float force = 25.0f;
 	public static float time = 0.2f;
 
     [Tooltip("Shockwave emitter prefab here")]    
