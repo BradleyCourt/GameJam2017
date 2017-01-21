@@ -23,6 +23,11 @@ public class ShockHandler : MonoBehaviour {
         {
             Debug.Log("ShockHandler: Missing emitterPrefab");
         }
+
+        for (int i = 0; i < 10; ++i) 
+        {
+            InstanstiateEmitter();
+        }
     }
 
 	void Update () 
