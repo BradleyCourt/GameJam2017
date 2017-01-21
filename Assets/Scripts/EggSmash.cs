@@ -8,7 +8,9 @@ using System.Collections;
 public class EggSmash : MonoBehaviour {
 
 	public float smashVelocity = 10.0f;
-	Rigidbody rb;
+	private Rigidbody rb;
+
+	public Action[] onSmash;
 
 	void Start () 
 	{
@@ -24,6 +26,11 @@ public class EggSmash : MonoBehaviour {
 				if (col.relativeVelocity.magnitude >= smashVelocity)		// Check if the egg's velocity is too fast
 				{
 					Debug.Log("SMASH!");
+					foreach (Action a in onSmash)
+					{
+						if (a)
+							a.Execute();
+					}
 				}
 			}
 		}

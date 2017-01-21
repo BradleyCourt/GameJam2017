@@ -4,45 +4,46 @@ using System.Collections;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
-    //private bool isShowing;
-    bool isPaused = false;
 
     // Use this for initialization
     void Start()
     {
-
+		if (pauseMenu)		// Verify the pause menu is specified
+		{
+			if (GameManager.Paused)
+			{
+				pauseMenu.SetActive(true);
+			}
+			else
+				pauseMenu.SetActive(false);
+		}
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("escape") && !isPaused)
+		if (Input.GetKeyDown("escape") && !GameManager.Paused)
         {
             pauseGame();
         }
-        else if (Input.GetKeyDown("escape") && isPaused)
+		else if (Input.GetKeyDown("escape") && GameManager.Paused)
         {
             UnPause();
         }
     }
     void pauseGame()
     {
-        //pauseMenu.SetActive(isShowing);
         pauseMenu.SetActive(true);
-
-            Time.timeScale = 0;
-            isPaused = true;
-            //isShowing = !isShowing;
-            //pauseMenu.SetActive(isShowing);
+		Time.timeScale = 0;
+		GameManager.Paused = true;
 
     }
 
     public void UnPause()
     {
-        print("yo");
-        Time.timeScale = 1;
         pauseMenu.SetActive(false);
-        isPaused = false;
+		Time.timeScale = 1;
+		GameManager.Paused = false;
     }
 
 }
