@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ClickPlane
   - Obstacle
+  - AudioPlayer
   layers:
   - Default
   - TransparentFX

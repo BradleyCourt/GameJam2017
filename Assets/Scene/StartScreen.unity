@@ -90,6 +90,63 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &87987739
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 114000010822414676, guid: 316670123ebfb024e91f55ab4e785cd0,
+        type: 2}
+      propertyPath: AudioClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010196981250, guid: 316670123ebfb024e91f55ab4e785cd0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.8665059
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010196981250, guid: 316670123ebfb024e91f55ab4e785cd0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.475142
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010196981250, guid: 316670123ebfb024e91f55ab4e785cd0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 5.987591
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010196981250, guid: 316670123ebfb024e91f55ab4e785cd0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010196981250, guid: 316670123ebfb024e91f55ab4e785cd0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010196981250, guid: 316670123ebfb024e91f55ab4e785cd0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010196981250, guid: 316670123ebfb024e91f55ab4e785cd0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010196981250, guid: 316670123ebfb024e91f55ab4e785cd0, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010822414676, guid: 316670123ebfb024e91f55ab4e785cd0,
+        type: 2}
+      propertyPath: AudioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1d88b32369443d84ab601ebe0661b914, type: 3}
+    - target: {fileID: 114000010822414676, guid: 316670123ebfb024e91f55ab4e785cd0,
+        type: 2}
+      propertyPath: AudioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: ba63746d7fb351c45b3b6e673004e67b, type: 3}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 316670123ebfb024e91f55ab4e785cd0, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &99853634
 GameObject:
   m_ObjectHideFlags: 0
