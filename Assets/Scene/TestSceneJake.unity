@@ -847,6 +847,8 @@ GameObject:
   - 81: {fileID: 1629255119}
   - 114: {fileID: 1629255124}
   - 114: {fileID: 1629255125}
+  - 114: {fileID: 1629255126}
+  - 95: {fileID: 1629255127}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -951,6 +953,35 @@ MonoBehaviour:
   smoothing: 0.2
   offSet: 5
   cameraDistance: 35
+--- !u!114 &1629255126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1629255118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a88e965de03a634381fbde94d2bafb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransitionMat: {fileID: 2100000, guid: acf881a469864d64488abbee5dc22def, type: 2}
+--- !u!95 &1629255127
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1629255118}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 366e59865843f6f498d2f1759fd30a9f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &1700177126
 Prefab:
   m_ObjectHideFlags: 0
