@@ -323,7 +323,7 @@ GameObject:
   - 114: {fileID: 604873697}
   m_Layer: 0
   m_Name: Easter_egg
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -468,6 +468,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   obj: {fileID: 604873688}
+--- !u!1 &701706158 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100012, guid: 5acbac3df078e52498b039c08dd7a4d2, type: 3}
+  m_PrefabInternal: {fileID: 1232763517}
+--- !u!65 &701706159
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 701706158}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.2282887, y: 0.82445264, z: 3.8132095}
+  m_Center: {x: 2.1141453, y: -0.08777332, z: -0.29527235}
+--- !u!114 &701706161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 701706158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47830cf2c40e7ed4b8b5ebc46ffcc5ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &995720591
 GameObject:
   m_ObjectHideFlags: 0
