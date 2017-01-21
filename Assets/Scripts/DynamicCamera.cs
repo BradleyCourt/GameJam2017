@@ -39,8 +39,11 @@ public class DynamicCamera : MonoBehaviour
                 float y = 0;
                 foreach (GameObject g in TargetList) // Sums the x and y vavlues of all targets in list before dividing by length of list to find focus point
                 {
-                    x += g.transform.position.x;
-                    y += g.transform.position.y;
+					if (g.activeSelf)
+					{
+                    	x += g.transform.position.x;
+                    	y += g.transform.position.y;
+					}
                 }
 
                 focusPoint = new Vector3(x / TargetList.Length, y / TargetList.Length, 0);
