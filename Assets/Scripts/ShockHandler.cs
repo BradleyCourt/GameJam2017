@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ShockHandler : MonoBehaviour {
 
@@ -7,9 +8,22 @@ public class ShockHandler : MonoBehaviour {
 	public static float force = 15.0f;
 	public static float time = 0.2f;
 
+    [Tooltip("Shockwave emitter prefab here")]    
+    public GameObject emitterPrefab;
+
+    List<ParticleSystem> emitterPool = new List<ParticleSystem>();
+
 	// Declared here to prevent variable declaration each time the screen is tapped
 	private RaycastHit[] hits;
 	private RaycastHit hit;
+
+    void Start()
+    {
+        if (emitterPrefab == null)
+        {
+            Debug.Log("ShockHandler: Missing emitterPrefab");
+        }
+    }
 
 	void Update () 
 	{
@@ -49,9 +63,45 @@ public class ShockHandler : MonoBehaviour {
 				GameObject go = new GameObject();
 				Shockwave sw = go.AddComponent<Shockwave>();
 
+                PlayEmitter(pos);
+
 				// Start the shockwave at position pos
 				sw.StartShockwave(pos);
 			}
 		}
 	}
+
+    void InstanstiateEmitter()
+    {
+        emitterPool.Add(Instantiate(emitterPrefab).GetComponent<ParticleSystem>());
+    }
+
+
+
+    void InstanstiateEmitter(Vector2 pos)
+    {
+        emitterPool.Add(Instantiate(emitterPrefab).GetComponent<ParticleSystem>());
+        emitterPool[emitterPool.Count - 1].transform.position = new Vector3(pos.x, pos.y);
+    }
+
+    void PlayEmitter(Vector2 pos)
+    {
+        bool played = false;
+
+        foreach (ParticleSystem e in emitterPool)
+        {
+            if (!e.isPlaying)
+            {
+                e.transform.position = new Vector3(pos.x, pos.y);
+                played = true;
+                e.Play();
+            }
+        }
+        
+        if(!played)
+        {
+            InstanstiateEmitter(pos);
+            emitterPool[emitterPool.Count - 1].Play();
+        }
+    }
 }

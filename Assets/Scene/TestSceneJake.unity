@@ -565,6 +565,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44c40d40da930b45a427c692e3cd820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emitterPrefab: {fileID: 1000011745420820, guid: 38d9c759d33f0214fa37cf1569405e8c,
+    type: 2}
 --- !u!114 &1629255125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,7 +582,7 @@ MonoBehaviour:
   - {fileID: 1553639123}
   smoothing: 0.2
   offSet: 5
-  cameraDistance: 10
+  cameraDistance: 20
 --- !u!1 &1925330085
 GameObject:
   m_ObjectHideFlags: 0
