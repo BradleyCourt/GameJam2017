@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class DynamicCamera : MonoBehaviour
 {
-    public GameObject[] TargetList = null; // List of player controlled gameobjects to follow
+    public List<GameObject> TargetList; // List of player controlled gameobjects to follow
 
     public Vector3 startLocation = Vector3.zero;
 
@@ -30,7 +31,10 @@ public class DynamicCamera : MonoBehaviour
         if (startLocation.z != 0)
             cameraDistance = -startLocation.z;
 
-        TargetList = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject g in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            TargetList.Add(g);
+        }
 
         tanFOV = Mathf.Tan(Mathf.Deg2Rad * cam.fieldOfView / 2f);
         aspectRatio = Screen.width / Screen.height;
@@ -45,25 +49,30 @@ public class DynamicCamera : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-        if (TargetList.Length > 0) 
+        if (TargetList.Count > 0) 
         {
             Vector3 focusPoint;
 
-            if (TargetList.Length > 1)
+            if (TargetList.Count > 1)
             {
                 float x = 0;
                 float y = 0;
                 focusPoint.z = 0;
-                foreach (GameObject g in TargetList) // Sums the x and y vavlues of all targets in list before dividing by length of list to find focus point
+
+                for(int i = TargetList.Count; i > 1; --i)
                 {
-					if (g.activeSelf)
-					{
-                    	x += g.transform.position.x;
-                    	y += g.transform.position.y;
-					}
+                    if (TargetList[i - 1].tag != "Player" || TargetList[i - 1].activeSelf == false)
+                    {
+                        TargetList.Remove(TargetList[i - 1]);
+                    }
+                    else if (TargetList[i - 1].activeSelf)
+                    {
+                        x += TargetList[i - 1].transform.position.x;
+                        y += TargetList[i - 1].transform.position.y;
+                    }
                 }
 
-                focusPoint = new Vector3(x / TargetList.Length, y / TargetList.Length, 0);
+                focusPoint = new Vector3(x / TargetList.Count, y / TargetList.Count, 0);
             }
             else
             {
