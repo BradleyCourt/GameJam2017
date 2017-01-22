@@ -64,24 +64,27 @@ public class ShockHandler : MonoBehaviour {
 			// MOBILE CONTROLS
 			foreach (Touch touch in Input.touches)
 			{
-				// Find all objects beneath the tap
-				hits = Physics.RaycastAll (Camera.main.ScreenPointToRay(touch.position));
-				if (hits.Length > 0)
+				if (touch.phase == TouchPhase.Began)
 				{
-					foreach (RaycastHit h in hits)		// Loop through all hits and find the hit-plane
+					// Find all objects beneath the tap
+					hits = Physics.RaycastAll (Camera.main.ScreenPointToRay(touch.position));
+					if (hits.Length > 0)
 					{
-						if (h.transform.tag == "ClickPlane")
+						foreach (RaycastHit h in hits)		// Loop through all hits and find the hit-plane
 						{
-							hit = h;
-							break;
+							if (h.transform.tag == "ClickPlane")
+							{
+								hit = h;
+								break;
+							}
 						}
-					}
 
-					if (hit.collider != null)		// Verify that the click-plane exists and was hit
-					{
-						// Prevent a turn from being used when skipping camera fade-in at the start of the game
-						if (!GameManager.currentLevelData.playingIntro)
-							CreateShockWave(hit.point);		// Create a shock wave
+						if (hit.collider != null)		// Verify that the click-plane exists and was hit
+						{
+							// Prevent a turn from being used when skipping camera fade-in at the start of the game
+							if (!GameManager.currentLevelData.playingIntro)
+								CreateShockWave(hit.point);		// Create a shock wave
+						}
 					}
 				}
 			}
