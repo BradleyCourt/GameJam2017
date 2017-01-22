@@ -216,7 +216,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000012202176734, guid: 073cc16867e28e640bbe033e70f84392, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.28
+      value: 5.42
       objectReference: {fileID: 0}
     - target: {fileID: 4000012202176734, guid: 073cc16867e28e640bbe033e70f84392, type: 2}
       propertyPath: m_LocalPosition.y
@@ -414,6 +414,7 @@ MonoBehaviour:
   smoothing: 0.1
   offSet: 5
   cameraDistance: 20
+  starting: 0
 --- !u!114 &114846868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1956,7 +1957,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000014193560460, guid: fdd11019029007845af46d6775f0f401, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.28
+      value: -3.37
       objectReference: {fileID: 0}
     - target: {fileID: 4000014193560460, guid: fdd11019029007845af46d6775f0f401, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3844,6 +3845,7 @@ MonoBehaviour:
   eggs:
   - {fileID: 813201559}
   eggsRequired: 1
+  playingIntro: 0
 --- !u!4 &2109306970
 Transform:
   m_ObjectHideFlags: 0
