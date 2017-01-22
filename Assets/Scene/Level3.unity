@@ -1652,7 +1652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHits: 15
   hitsLeft: 0
-  totalTime: 60
+  totalTime: 25
   timeLeft: 0
   collectibles:
   - {fileID: 1533514977}
