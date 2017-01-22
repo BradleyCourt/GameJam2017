@@ -31,10 +31,10 @@ public class DynamicCamera : MonoBehaviour
         if (startLocation.z != 0)
             cameraDistance = -startLocation.z;
 
-        foreach (GameObject g in GameObject.FindGameObjectsWithTag("Player"))
-        {
-            TargetList.Add(g);
-        }
+        //foreach (GameObject g in GameObject.FindGameObjectsWithTag("Player"))
+        //{
+        //    TargetList.Add(g);
+        //}
 
         tanFOV = Mathf.Tan(Mathf.Deg2Rad * cam.fieldOfView / 2f);
         aspectRatio = Screen.width / Screen.height;
