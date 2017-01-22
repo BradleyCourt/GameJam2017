@@ -367,6 +367,7 @@ MonoBehaviour:
   - {fileID: 999106986}
   - {fileID: 386696957}
   eggsRequired: 2
+  playingIntro: 0
 --- !u!4 &483664154
 Transform:
   m_ObjectHideFlags: 0
@@ -392,6 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiElement: {fileID: 1972292035}
+  prefix: 
 --- !u!1 &604873688 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000013381914248, guid: 073cc16867e28e640bbe033e70f84392,
@@ -851,6 +853,7 @@ GameObject:
   - 81: {fileID: 1629255119}
   - 114: {fileID: 1629255124}
   - 114: {fileID: 1629255125}
+  - 114: {fileID: 1629255126}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -945,7 +948,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1629255118}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 859a99392d753f143953f87bb61e4b92, type: 3}
   m_Name: 
@@ -954,9 +957,25 @@ MonoBehaviour:
   - {fileID: 604873688}
   - {fileID: 999106986}
   - {fileID: 386696957}
+  startLocation: {x: -30.44, y: 11.45, z: -14.61}
   smoothing: 0.1
   offSet: 5
   cameraDistance: 35
+  starting: 0
+--- !u!114 &1629255126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1629255118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a88e965de03a634381fbde94d2bafb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransitionMat: {fileID: 2100000, guid: acf881a469864d64488abbee5dc22def, type: 2}
+  transitioning: 0
+  countingDown: 0
 --- !u!1001 &1697622416
 Prefab:
   m_ObjectHideFlags: 0
