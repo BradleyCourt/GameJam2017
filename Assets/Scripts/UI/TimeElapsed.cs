@@ -17,7 +17,7 @@ public class TimeElapsed : MonoBehaviour {
 				if (timeElapsed > 0)
 					uiElement.text = string.Format(prefix + " {0}:{1:00}", (int)timeElapsed / 60, (int)timeElapsed % 60);
 				else
-					uiElement.text = prefix + "0:00";
+					uiElement.text = prefix + " 0:00";
 			}
 		}
 	}

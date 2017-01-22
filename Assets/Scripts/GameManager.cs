@@ -50,7 +50,7 @@ public static class GameManager {
 		
 	public static LevelClass[] levels = new LevelClass[] 
 	{ new LevelClass("Level1"), new LevelClass("Level2"), new LevelClass("Level3"),
-		new LevelClass("Level4"), new LevelClass("Level5"), new LevelClass("Level6")
+		new LevelClass("Level4")
 	};
 
 	public static string nextLevel ()
