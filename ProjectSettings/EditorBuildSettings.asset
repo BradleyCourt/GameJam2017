@@ -8,12 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/StartScreen.unity
   - enabled: 1
+    path: Assets/Scene/LevelSelect.unity
+  - enabled: 1
     path: Assets/Scene/Level1.unity
   - enabled: 1
-    path: Assets/Scene/LevelSelect.unity
+    path: Assets/Scene/Level2.unity
+  - enabled: 1
+    path: Assets/Scene/Level3.unity
+  - enabled: 1
+    path: Assets/Scene/level4.unity
+  - enabled: 1
+    path: Assets/Scene/level5.unity
   - enabled: 0
     path: Assets/Scene/Greybox.unity
   - enabled: 1
     path: Assets/Scene/TestSceneJake.unity
-  - enabled: 1
-    path: Assets/Scene/Level2.unity

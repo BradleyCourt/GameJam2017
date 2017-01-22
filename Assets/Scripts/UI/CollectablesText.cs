@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class RemainingHits : MonoBehaviour {
+public class CollectablesText : MonoBehaviour {
 
 	public Text uiElement;
 	public string prefix = "";
@@ -13,11 +13,8 @@ public class RemainingHits : MonoBehaviour {
 		{
 			if (uiElement)		// If a UI text-element has been specified
 			{
-				float hitsLeft = GameManager.currentLevelData.hitsLeft;
-				if (hitsLeft > 0)
-					uiElement.text = string.Format(prefix + " " + hitsLeft);
-				else
-					uiElement.text = prefix + " 0";
+				uiElement.text = prefix + " " + GameManager.currentLevelData.collected + " / " + 
+					GameManager.currentLevelData.collectibles.Length + " (req. " + GameManager.currentLevelData.collectiblesRequired + ")";
 			}
 		}
 	}

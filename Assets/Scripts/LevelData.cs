@@ -28,6 +28,9 @@ public class LevelData : MonoBehaviour {
 
     [HideInInspector] public bool playingIntro = false;
 
+	private bool outOfHitsCo = false;
+	private bool outOfTimeCo = false;
+
 	public void CollectEgg (GameObject egg)
 	{
 		eggsCollected.Add(egg);
@@ -149,7 +152,23 @@ public class LevelData : MonoBehaviour {
                 skipIntro();
             }
         }
+
+		if (hitsLeft <= 0 && !outOfHitsCo)		// If the player runs out of shockwaves
+		{
+			StartCoroutine(noHitsTimeFailCase(1.3f));
+		}
+
+		if (timeLeft <= 0 && !outOfTimeCo)
+		{
+			StartCoroutine(noHitsTimeFailCase(0f));
+		}
     }
+
+	private IEnumerator noHitsTimeFailCase (float t)
+	{
+		yield return new WaitForSeconds (t);
+		restartLevel();
+	}
 
     void skipIntro()
     {
