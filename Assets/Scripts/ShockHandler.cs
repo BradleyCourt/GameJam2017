@@ -49,7 +49,9 @@ public class ShockHandler : MonoBehaviour {
 
 				if (hit.collider != null)		// Verify that the click-plane exists and was hit
 				{
-					CreateShockWave(hit.point);		// Create a shock wave
+					// Prevent a turn from being used when skipping camera fade-in at the start of the game
+					if (!GameManager.currentLevelData.playingIntro)
+						CreateShockWave(hit.point);		// Create a shock wave
 				}
 			}
 		}

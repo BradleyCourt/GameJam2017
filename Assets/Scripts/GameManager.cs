@@ -49,7 +49,7 @@ public static class GameManager {
 	}
 		
 	public static LevelClass[] levels = new LevelClass[] 
-	{ new LevelClass("Level_1"), new LevelClass("Level_2"), new LevelClass("Level_3"),
+	{ new LevelClass("Level1"), new LevelClass("Level2"), new LevelClass("Level_3"),
 		new LevelClass("Level_4"), new LevelClass("Level_5"), new LevelClass("Level_6"),
 		new LevelClass("TestSceneJake")
 	};

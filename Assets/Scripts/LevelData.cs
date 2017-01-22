@@ -26,7 +26,7 @@ public class LevelData : MonoBehaviour {
 
     TransitionBlit blit;
 
-    bool playingIntro = false;
+    [HideInInspector] public bool playingIntro = false;
 
 	public void CollectEgg (GameObject egg)
 	{
@@ -67,16 +67,25 @@ public class LevelData : MonoBehaviour {
 		{
 			if (count >= eggsRequired)		// Enough eggs were collected to pass!
 			{
-				LevelClass lc = GameManager.LevelByName(SceneManager.GetActiveScene().name);
-				if (lc != null)		// Found the current level in the level list
+				if (collected >= collectiblesRequired)		// Check if enough collectibles have been picked up to pass
 				{
-					Debug.Log("Completed the level with " + eggsCollected.Count + " of " + eggs.Length + " eggs collected. " + collected + " of " + collectibles.Length + " were collected");
-					lc.Complete (collected, eggsCollected.Count, hitsLeft, timeLeft);
+					LevelClass lc = GameManager.LevelByName(SceneManager.GetActiveScene().name);
+					if (lc != null)		// Found the current level in the level list
+					{
+						Debug.Log("Completed the level with " + eggsCollected.Count + " of " + eggs.Length + " eggs collected. " + collected + " of " + collectibles.Length + " collectibles were collected");
+						lc.Complete (collected, eggsCollected.Count, hitsLeft, timeLeft);
+						StartCoroutine(startNextLevel());
+					}
+				}
+				else
+				{
+					Debug.Log("not enough collectables");
+					restartLevel();
 				}
 			}
 			else
 			{
-				// The level was failed and needs to be restarted
+				Debug.Log("not enough eggs");
 				restartLevel();
 			}
 		}
@@ -84,12 +93,19 @@ public class LevelData : MonoBehaviour {
 
 	private void restartLevel()
 	{
-		StartCoroutine(animationHandler(0.7f));
+		StartCoroutine(animationHandler());
 
 		//Time.timeScale = 1f;
 	}
 
-	private IEnumerator animationHandler(float t)
+	private IEnumerator startNextLevel()
+	{
+		blit.transitioning = true;
+		yield return new WaitForSeconds(1);
+		AsyncOperation ao = SceneManager.LoadSceneAsync(GameManager.nextLevel());
+	}
+
+	private IEnumerator animationHandler()
 	{
 		yield return new WaitForSeconds(1.5f);
         blit.transitioning = true;
@@ -156,8 +172,8 @@ public class LevelData : MonoBehaviour {
 
         StartCoroutine(FindObjectOfType<DynamicCamera>().StageOverView());
         //Time.timeScale = 1;
-        playingIntro = false;
+        
 		GameManager.Playing = false;		// This pauses the game timer until the first move is made
-
+		playingIntro = false;
     }
 }
