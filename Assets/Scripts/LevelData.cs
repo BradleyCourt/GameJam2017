@@ -183,10 +183,13 @@ public class LevelData : MonoBehaviour {
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(2f);
 
-        StartCoroutine(FindObjectOfType<DynamicCamera>().StageOverView());
+        FindObjectOfType<DynamicCamera>().starting = true;
+
+        yield return new WaitForSecondsRealtime(2f);
+        FindObjectOfType<DynamicCamera>().starting = false;
         //Time.timeScale = 1;
-        
-		GameManager.Playing = false;		// This pauses the game timer until the first move is made
+
+        GameManager.Playing = false;		// This pauses the game timer until the first move is made
 		playingIntro = false;
     }
 }
