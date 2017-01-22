@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 3
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 5ce75119787234e4aae0598fcc619b45, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -227,11 +227,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000014163739848, guid: 4dbd2dd8a50460045a75755f74d36f1e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1874
+      value: 1858
       objectReference: {fileID: 0}
     - target: {fileID: 4000014163739848, guid: 4dbd2dd8a50460045a75755f74d36f1e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1130.2325
+      value: -155
       objectReference: {fileID: 0}
     - target: {fileID: 4000014163739848, guid: 4dbd2dd8a50460045a75755f74d36f1e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -821,11 +821,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000014163739848, guid: 4dbd2dd8a50460045a75755f74d36f1e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4447
+      value: 6192
       objectReference: {fileID: 0}
     - target: {fileID: 4000014163739848, guid: 4dbd2dd8a50460045a75755f74d36f1e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 786.0465
+      value: 2387
       objectReference: {fileID: 0}
     - target: {fileID: 4000014163739848, guid: 4dbd2dd8a50460045a75755f74d36f1e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -886,11 +886,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000014163739848, guid: 4dbd2dd8a50460045a75755f74d36f1e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2662
+      value: 3066
       objectReference: {fileID: 0}
     - target: {fileID: 4000014163739848, guid: 4dbd2dd8a50460045a75755f74d36f1e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1219.5348
+      value: 2392
       objectReference: {fileID: 0}
     - target: {fileID: 4000014163739848, guid: 4dbd2dd8a50460045a75755f74d36f1e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2780,11 +2780,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000014163739848, guid: 4dbd2dd8a50460045a75755f74d36f1e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 858
+      value: 1092
       objectReference: {fileID: 0}
     - target: {fileID: 4000014163739848, guid: 4dbd2dd8a50460045a75755f74d36f1e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 786.0465
+      value: 2267
       objectReference: {fileID: 0}
     - target: {fileID: 4000014163739848, guid: 4dbd2dd8a50460045a75755f74d36f1e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3032,7 +3032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281a1ba46fd9b9140967021834d12ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHits: 15
+  totalHits: 50
   hitsLeft: 0
   totalTime: 60
   timeLeft: 0
@@ -3508,11 +3508,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000014163739848, guid: 4dbd2dd8a50460045a75755f74d36f1e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3450
+      value: 3830
       objectReference: {fileID: 0}
     - target: {fileID: 4000014163739848, guid: 4dbd2dd8a50460045a75755f74d36f1e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1130.2325
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 4000014163739848, guid: 4dbd2dd8a50460045a75755f74d36f1e, type: 2}
       propertyPath: m_LocalPosition.z
