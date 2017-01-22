@@ -182,6 +182,7 @@ public class LevelData : MonoBehaviour {
 
     private IEnumerator fadeInStart()
     {
+        Debug.Log(Time.timeScale);
         playingIntro = true;
         blit.transitioning = true;
         blit.countingDown = true;
@@ -194,8 +195,8 @@ public class LevelData : MonoBehaviour {
         yield return new WaitForSecondsRealtime(2f);
         FindObjectOfType<DynamicCamera>().starting = false;
         //Time.timeScale = 1;
-
+        playingIntro = false;
         GameManager.Playing = false;		// This pauses the game timer until the first move is made
-		playingIntro = false;
+		
     }
 }
