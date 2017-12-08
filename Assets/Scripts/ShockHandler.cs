@@ -32,7 +32,7 @@ public class ShockHandler : MonoBehaviour {
 
 	void Update () 
 	{
-		if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+		if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WebGLPlayer)
 		{
 			// WINDOWS CONTROLS
 			if (Input.GetMouseButtonDown(0))		// Check the player has clicked
