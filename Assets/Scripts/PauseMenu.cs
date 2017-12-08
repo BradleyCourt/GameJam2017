@@ -4,6 +4,7 @@ using System.Collections;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public bool paused;
 
     // Use this for initialization
     void Start()
@@ -36,6 +37,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(true);
 		Time.timeScale = 0;
 		GameManager.Paused = true;
+        paused = true;
 
     }
 
@@ -44,6 +46,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
 		Time.timeScale = 1;
 		GameManager.Paused = false;
+        paused = false;
     }
 
 }

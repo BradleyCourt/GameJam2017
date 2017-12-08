@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
 public class ShockHandler : MonoBehaviour {
 
 	public static float distance = 10.0f;
@@ -10,6 +9,7 @@ public class ShockHandler : MonoBehaviour {
 
     [Tooltip("Shockwave emitter prefab here")]    
     public GameObject emitterPrefab;
+    public PauseMenu pauseMenu;
 
     List<ParticleSystem> emitterPool = new List<ParticleSystem>();
 
@@ -19,6 +19,8 @@ public class ShockHandler : MonoBehaviour {
 
     void Start()
     {
+        pauseMenu = FindObjectOfType<PauseMenu>();
+
         if (emitterPrefab == null)
         {
             Debug.Log("ShockHandler: Missing emitterPrefab");
@@ -28,6 +30,7 @@ public class ShockHandler : MonoBehaviour {
         {
             InstanstiateEmitter();
         }
+
     }
 
 	void Update () 
@@ -35,7 +38,7 @@ public class ShockHandler : MonoBehaviour {
 		if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WebGLPlayer)
 		{
 			// WINDOWS CONTROLS
-			if (Input.GetMouseButtonDown(0))		// Check the player has clicked
+			if (Input.GetMouseButtonDown(0) && pauseMenu.paused == false )		// Check the player has clicked
 			{
 				// Find all objects beneath the click
 				hits = Physics.RaycastAll (Camera.main.ScreenPointToRay(Input.mousePosition));
